@@ -1,16 +1,18 @@
-const express = require("express");
-const app = express();
+var bodyParser = require('body-parser')
+var express = require("express")
+var app = express()
+var router = require("./routes/routes")
 
 app.set('view engine','ejs');
 app.use(express.static('public'));
+ 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
-app.get("/",(req, res) => {
+app.use("/",router);
 
-    res.render("index");
+app.listen(8080,() => {
+    console.log("Servidor rodando")
 });
-
-app.get("/app",(req, res) => {
-    res.render("App.ejs");
-});
-
-app.listen(8080,()=> {console.log('App rodando');});

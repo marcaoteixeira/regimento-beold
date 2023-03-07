@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/navbar.ejs') %>
+    <hr>
+    <div class="container">
+        <div class="card-header">
+            <h2>Quorum</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/list_quorum">
+                <label>Comissão</label>
+                <select name="comissao" class="form-control">
+                    <% comissoes.forEach((comissao)=> { %>
+                        <option value="<%= comissao.id %>" title="<%= comissao.comissao %>">
+                            <%= comissao.sigla %>
+                        </option>
+                        <% }) %>
+                </select>
+                <br>
+    
+                <button class="btn btn-success">OK</button>
+            </form>
+        </div>
+    </div>    
+<%- include('../partials/footer.ejs') %>
+

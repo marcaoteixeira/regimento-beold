@@ -1,0 +1,33 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Adicionar Comissão</h2>
+            </div>
+
+            <form method="post" action="/admin/comissao/save">
+                Comissão:<input class="form-control" type="text" name="comissao" style="min-width: 50px;"
+                    placeholder="Nome da Comissão"><br>
+                Sigla:<input class="form-control" type="text" name="sigla" placeholder="Sigla da Comissão"><br>
+                Número de Membros:<input class="form-control" type="text" name="membros"
+                    placeholder="Número de membros"><br>
+                Quorum Abertura:<input class="form-control" type="text" name="abertura"
+                    placeholder="Quorum para abertura"><br>
+                Quorum Absoluto:<input class="form-control" type="text" name="absoluto"
+                    placeholder="Quorum Absoluto"><br>
+                Quorum um Décimo<input class="form-control" type="text" name="umdecimo" placeholder="Um décimo"><br>
+                Quorum seis Décimos<input class="form-control" type="text" name="seiscentesimos"
+                    placeholder="Seis centésimos"><br>
+
+                <button class="btn btn-success">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+        
+<%- include('../../partials/footer.ejs') %>
