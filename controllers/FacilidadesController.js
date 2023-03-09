@@ -16,7 +16,15 @@ class FacilidadesController{
         //res.send(list_comiss);
     }
     async newcomiss(req, res){
-        res.render('/admin/comissao/new');
+        var comissao = req.body.comissao;
+        var sigla  = req.body.comissao;
+        var membros = req.body.comissao;
+        var abertura  = req.body.comissao;
+        var absoluto = req.body.comissao;
+        var umdecimo = req.body.comissao;
+        var seisdecimos = req.body.comissao;
+
+        res.render('admin/comissao/new');
     }
    
 }
