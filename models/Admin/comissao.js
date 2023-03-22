@@ -23,7 +23,7 @@ class Quorum{
 
         }
     }
-    async ComissNew(comissao,sigla,membros,abertura,absoluto,umdecimo,seiscentesimos){
+    async ComissNew(comissao,sigla,membros){
         try{           
             var result  = await knex.where({id: comissao}).table("tab_quorum")
             return result;

@@ -6,7 +6,9 @@ var HomeController = require("../controllers/HomeController");
 
 router.get('/',HomeController.index);
 router.get('/facilidades',FacilidadesController.lista);
-router.get('/admin/comissao/new',FacilidadesController.newcomiss);
+router.get('/admin/comissao/new',FacilidadesController.newform);
+router.post('/admin/comissao/new',FacilidadesController.newcomiss)
 router.post('/list_quorum',FacilidadesController.quorum);
+
 
 module.exports = router;
