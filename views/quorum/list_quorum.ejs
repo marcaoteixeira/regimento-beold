@@ -5,15 +5,24 @@
     
             <% comissoes.forEach(comis=> { %>
                 <h1>
-                    <%= comis.sigla %>
+                    <%= comis.comissao %> <br> <%=  comis.sigla %>
+
                 </h1>
                 <p class="quorum">Membros:&nbsp;&nbsp;<%= comis.membros %></p>
-                <p class="quorum">Quorum Abertura:&nbsp;&nbsp;<%= comis.quorum_aber %></p>
-                <p class="quorum">Quorum Absoluto:&nbsp;&nbsp;<%= comis.quorum_abs %></p>
-                <p class="quorum">Um Décimo:&nbsp;&nbsp;<%= comis.um_decimo %></p>
-                <p class="quorum">Seis Centésimos:&nbsp;&nbsp;<%= comis.seis_centesimos %></p>
+                <% if(Number.isInteger(comis.membros/2)) { %> 
+                    <p class="quorum">Quorum Abertura:&nbsp;&nbsp;<%= comis.membros/2 %></p>
+                <%}else{ %>
+                    <p class="quorum">Quorum Abertura:&nbsp;&nbsp;<%= Math.trunc(comis.membros/2)+1 %></p>
+                <% } %>
+                <p class="quorum">Quorum Absoluto:&nbsp;&nbsp;<%= Math.trunc(comis.membros/2)+1 %></p>
+                <% if(Number.isInteger(comis.membros*0.1)) { %> 
+                    <p class="quorum">Um Décimo:&nbsp;&nbsp;<%= comis.membros*0.1 %></p>
+                <%}else{ %>
+                    <p class="quorum">Um Décimo:&nbsp;&nbsp;<%= Math.trunc(comis.membros*0.1)+1 %></p>
+                <% } %>                
+                <p class="quorum">Seis Centésimos:&nbsp;&nbsp;<%= Math.trunc(comis.membros*0.06)+1 %></p>
     
-                <% }) %>
+            <% }) %>
     
         </div>
     </div>

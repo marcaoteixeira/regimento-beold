@@ -17,7 +17,7 @@ router.get("/facilidades", (req, res) => {
 
 router.get("/quorum",(req, res) => {4
     //var comissoes = [];
-    database.select("*").table("tab_quorum").then(data => {
+    database.select("*").table("tab_comissao").then(data => {
         //console.log(data);
         res.render("quorum/quorum", {comissoes: data});
     });
@@ -26,7 +26,7 @@ router.get("/quorum",(req, res) => {4
 router.post("/list_quorum", (req, res) => {
     var comissao = req.body.comissao;
 
-    database.where({id: comissao}).table("tab_quorum").then(data => {
+    database.where({id: comissao}).table("tab_comissao").then(data => {
         res.render("quorum/list_quorum", {comissoes: data});    
     });
 }); 

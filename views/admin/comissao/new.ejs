@@ -8,12 +8,12 @@
                 <h2>Adicionar Comissão</h2>
             </div>
 
-            <form method="post" action="/admin/comissao/save">
+            <form method="post" action="/admin/comissao/new">
                 Comissão:<input class="form-control" type="text" name="comissao" style="min-width: 50px;"
                     placeholder="Nome da Comissão"><br>
                 Sigla:<input class="form-control" type="text" name="sigla" placeholder="Sigla da Comissão"><br>
-                Número de Membros:<input class="form-control" type="text" name="membros"
-                    placeholder="Número de membros"><br>
+                Número de Membros:<input class="form-control" type="number" name="membros"
+                placeholder="Número de membros"><br>
                
 
                 <button class="btn btn-success">Cadastrar</button>

@@ -1,8 +1,10 @@
-var quorum = require("../models/quorum");
+var Quorum = require("../models/quorum");
+var Comissao = require("../models/admin/comissao.js")
 
 class FacilidadesController{
     async lista(req, res){
-        var list_quorum = await quorum.findAll();
+        var list_quorum = await Quorum.findAll();
+        
         //.then(data => {
             //console.log(data);
           //  res.render("../quorum/quorum", {comissoes: data});
@@ -11,16 +13,30 @@ class FacilidadesController{
     }
     async quorum(req, res){
         var comissao = req.body.comissao;
-        var list_comiss = await  quorum.findById(comissao);
+        var list_comiss = await   Quorum.findById(comissao);
         res.render('quorum/list_quorum', {comissoes: list_comiss});
         //res.send(list_comiss);
     }
     async newcomiss(req, res){
-        res.render('admin/comissao/new');
+        
+       res.render('admin/comissao/new');
     }
-   async save(req, res){
-    
-   }
+    async comissaosave(req, res){
+        
+        var comissao = req.body.comissao;
+        var sigla  = req.body.sigla;
+        var membros = req.body.membros;
+
+        await Comissao.ComissSave(comissao,sigla,membros);      
+    }
+    async update(req, res){   
+       
+        var list_comiss = await Comissao.findAll()
+
+        res.render('admin/comissao/update', {comissoes: list_comiss});
+
+     }
+   
 }
 
 module.exports = new FacilidadesController();

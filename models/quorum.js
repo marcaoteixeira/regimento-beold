@@ -5,7 +5,7 @@ var knex = require("../database/conection");
 class Quorum{
     async findAll(){
         try{
-            var result = await knex.select("*").table("tab_quorum");            
+            var result = await knex.select("*").table("tab_comissao");            
             return result;
         }catch(error){
             console.log(error);
@@ -14,7 +14,7 @@ class Quorum{
     }
     async findById(comissao){
         try{           
-            var result  = await knex.where({id: comissao}).table("tab_quorum")
+            var result  = await knex.where({id: comissao}).table("tab_comissao")
             return result;
 
         }catch(error){
@@ -22,7 +22,8 @@ class Quorum{
             return[];
 
         }
-    }    
+    }
+    
 }
 
 module.exports = new Quorum();
