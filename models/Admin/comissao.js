@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-var knex = require("../database/conection");
+const knex = require("../../database/conection");
 
-class Quorum{
+class Comissao{
     async findAll(){
         try{
             var result = await knex.select("*").table("tab_quorum");            
@@ -24,10 +24,10 @@ class Quorum{
         }
     }
     async ComissNew(comissao,sigla,membros){
+        
         try{           
-            var result  = await knex.where({id: comissao}).table("tab_quorum")
+            var result  = await knex.insert({comissao, sigla, membros }).table("tab_quorum")
             return result;
-
         }catch(error){
             console.log(error);
             return[];
@@ -36,4 +36,4 @@ class Quorum{
     }     
 }
 
-module.exports = new Quorum();
+module.exports = new Comissao();

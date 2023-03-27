@@ -1,0 +1,28 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+    <hr>
+    <div class="container">
+        <div class="card-header">
+            <h2>Comissões - Edição</h2>
+        </div>
+        
+            <table class="table table-bordered">
+                           
+                <tbody>            
+                    <% comissoes.forEach((comissao)=> { %>
+                        <tr>                         
+                            <td>
+                                <%= comissao.comissao %> - <%= comissao.comissao %>
+                            </td>
+                            <td>    
+                                <button type="button" class="btn btn-info">Editar</button>
+                                <button type="button" class="btn btn-danger">Excluir</button>
+                            </td>                            
+                        </tr>
+                        <% }) %>
+                </tbody>
+            
+            </table>
+               
+    </div>
+<%- include('../../partials/footer.ejs') %>

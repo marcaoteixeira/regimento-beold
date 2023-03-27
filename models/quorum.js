@@ -22,8 +22,7 @@ class Quorum{
             return[];
 
         }
-    }
-    async newComiss(comissao, )    
+    }    
 }
 
 module.exports = new Quorum();

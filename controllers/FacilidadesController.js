@@ -1,4 +1,4 @@
-var quorum = require("../models/Admin/comissao");
+var quorum = require("../models/quorum");
 
 class FacilidadesController{
     async lista(req, res){
@@ -16,14 +16,11 @@ class FacilidadesController{
         //res.send(list_comiss);
     }
     async newcomiss(req, res){
-        
-        var comissao = req.body.comissao;
-        var sigla  = req.body.comissao;
-        var membros = req.body.comissao;
-        
         res.render('admin/comissao/new');
     }
-   
+   async save(req, res){
+    
+   }
 }
 
 module.exports = new FacilidadesController();
