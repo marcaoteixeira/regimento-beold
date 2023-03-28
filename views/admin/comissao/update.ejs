@@ -1,28 +1,31 @@
 <%- include('../../partials/header.ejs') %>
 <%- include('../../partials/navbar.ejs') %>
+<div class="container">
     <hr>
-    <div class="container">
-        <div class="card-header">
-            <h2>Comissões - Edição</h2>
-        </div>
-        
-            <table class="table table-bordered">
-                           
-                <tbody>            
-                    <% comissoes.forEach((comissao)=> { %>
-                        <tr>                         
-                            <td>
-                                <%= comissao.comissao %> - <%= comissao.comissao %>
-                            </td>
-                            <td>    
-                                <button type="button" class="btn btn-info">Editar</button>
-                                <button type="button" class="btn btn-danger">Excluir</button>
-                            </td>                            
-                        </tr>
-                        <% }) %>
-                </tbody>
-            
-            </table>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Alterar comissão Comissão</h2>
+            </div>
+
+            <% comissoes.forEach(comis=> { %>
+
+
+            <form method="post" action="/admin/comissao/update">
+                Comissão:<input class="form-control" type="text" name="comissao" style="min-width: 50px;"
+                   value="<%= comis.comissao %>"><br>
+                Sigla:<input class="form-control" type="text" name="sigla" value="<%= comis.sigla %>"><br>
+                Número de Membros:<input class="form-control" type="number" name="membros"
+                value="<%= comis.membros %>"><br>
                
+
+                <button class="btn btn-success">Alterar</button>
+            </form>
+            <% }) %>    
+        </div>
     </div>
+
+
+</div>
+        
 <%- include('../../partials/footer.ejs') %>

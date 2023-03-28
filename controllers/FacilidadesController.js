@@ -29,10 +29,16 @@ class FacilidadesController{
 
         await Comissao.ComissSave(comissao,sigla,membros);      
     }
-    async update(req, res){   
+    async edit(req, res){   
        
         var list_comiss = await Comissao.findAll()
 
+        res.render('admin/comissao/edicao', {comissoes: list_comiss});
+
+     }
+     async update(req, res){
+       
+        var list_comiss = await Comissao.findById()
         res.render('admin/comissao/update', {comissoes: list_comiss});
 
      }
