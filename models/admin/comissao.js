@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 var knex = require("../../database/conection");
 
-class Comissao{
+class Comissao{  
     async findAll(){
         try{
             var result = await knex.select("*").table("tab_comissao");            
@@ -12,7 +12,6 @@ class Comissao{
             return[];
         }
     }
-   
     async findById(comissao){
         try{           
             var result  = await knex.where({id: comissao}).table("tab_comissao")
@@ -24,7 +23,6 @@ class Comissao{
 
         }
     }
-
     async ComissSave(comissao,sigla,membros){
         try{                       
             await knex.insert({comissao, sigla, membros}).table("tab_comissao");
@@ -37,12 +35,9 @@ class Comissao{
         }
     }  
     async ComissUpdate(comissao,sigla,membros){
-        try{
-            
-            var list_comiss = await this.findById(comissao);
-            
-            await knex.update({comissao,sigla,membros}).where({id: comissao}).table("tab_comissao");
-            console.log("Aterada com sucesso!!!")
+        try{                       
+            await knex.where({comissao: comissao}).update({comissao,sigla,membros}).table("tab_comissao")
+            console.log("Alterada com sucesso com sucesso!!!")
 
         }catch(error){
             console.log(error);
@@ -50,7 +45,7 @@ class Comissao{
 
         }
     } 
-    
+
 }
 
 module.exports = new Comissao();

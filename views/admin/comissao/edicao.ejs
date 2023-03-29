@@ -17,16 +17,18 @@
                             <td>
                                 <%= comissao.comissao %> - <%= comissao.sigla %>
                             </td>
-                            <td>
-                                <form method="get" action="/admin/comissao/update" style="display: inline;">
-                                    <input type="hidden" name="comissao" value="<%= comissao.id %>">
-                                    <button type="button" class="btn btn-success">Editar</button>
-                                </form>
+                            <td> 
+                            
+                                <form method="post" action="/admin/comissao/update">
+                                <input type="hidden" name="comissao" value="<%= comissao.id %>">
+                                <button class="btn btn-success">Editar</button>
+                            </form>
+
                             </td>
                             <td>
                                 <form method="post" action="/admin/comissao/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
                                     <input type="hidden" name="comissao" value="<%= comissao.id %>">
-                                    <button type="button" class="btn btn-danger">Excluir</button>
+                                    <button class="btn btn-danger">Excluir</button>
                                 </form>
                         
                         
