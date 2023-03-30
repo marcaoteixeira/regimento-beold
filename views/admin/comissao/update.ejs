@@ -12,6 +12,7 @@
                
             <form method="post" action="/admin/comissao/save">
 
+                <input type="hidden" name="id" value="<%= comiss.id %>">
                 Comissão:<input class="form-control" type="text" name="comissao" value="<%= comiss.comissao %>"><br>
                 Sigla:<input class="form-control" type="text" name="sigla" value="<%= comiss.sigla %>"><br>
                 Número de Membros:<input class="form-control" type="number" name="membros"

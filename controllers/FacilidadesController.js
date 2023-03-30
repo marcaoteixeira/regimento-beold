@@ -42,12 +42,12 @@ class FacilidadesController{
         res.render('admin/comissao/update', {comissoes: list_comiss});
      }
      async save(req, res){
+        var id = req.body.id
         var comissao = req.body.comissao;
         var sigla  = req.body.sigla;
         var membros = req.body.membros;
 
-        await Comissao.ComissUpdate(comissao,sigla,membros); 
-          
+        await Comissao.ComissUpdate(id, comissao, sigla, membros);           
 
      }
    
