@@ -34,7 +34,7 @@ class Comissao{
 
         }
     }  
-    async ComissUpdate(id, comissao,sigla,membros){
+    async ComissUpdate(id, comissao, sigla, membros){
         try{                       
             await knex.where({id: id}).update({comissao, sigla, membros}).table("tab_comissao")
             console.log("Alterada com sucesso com sucesso!!!")
