@@ -45,6 +45,16 @@ class Comissao{
 
         }
     } 
+    async ComissDelete(id){
+        try{                       
+            await knex.where({id: id}).delete().table("tab_comissao")
+            console.log("Comissão excluida com sucesso!!!")            
+
+        }catch(error){
+            console.log(error);            
+
+        }
+    } 
 
 }
 

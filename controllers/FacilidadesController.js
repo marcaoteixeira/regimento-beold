@@ -15,7 +15,7 @@ class FacilidadesController{
         var comissao = req.body.comissao;
         var list_comiss = await   Quorum.findById(comissao);
         res.render('quorum/list_quorum', {comissoes: list_comiss});
-        //res.send(list_comiss);
+        
     }
     async newcomiss(req, res){
         
@@ -50,6 +50,14 @@ class FacilidadesController{
         await Comissao.ComissUpdate(id, comissao, sigla, membros);           
 
      }
+     async delete(req, res){
+        var  id = req.body.comissao;        
+        var list_comiss = await Comissao.findAll()
+        await Comissao.ComissDelete(id);
+        res.redirect('edit');         
+        
+    }
+     
    
 }
 
