@@ -3,31 +3,31 @@
     <hr>
     <div class="container">
         <div class="card-header">
-            <h2>Comissões - Edição</h2>
+            <h2>Uso da Palavra - Edição</h2>
         </div>
         
             <table class="table table-bordered">
                            
                 <tbody>            
-                    <% comissoes.forEach((comissao)=> { %>
+                    <% palavras.forEach((palavra)=> { %>
                         <tr>
                             <td>
-                                <%= comissao.id %>
+                                <%= palavra.id %>
                             </td>
                             <td>
-                                <%= comissao.comissao %> - <%= comissao.sigla %>
+                                <%= palavra.evento %> - <%= palavra.destinatario %>
                             </td>
                             <td> 
                             
-                                <form method="post" action="/admin/comissao/update">
-                                <input type="hidden" name="comissao" value="<%= comissao.id %>">
+                                <form method="post" action="/admin/usopalavra/update">
+                                <input type="hidden" name="id" value="<%= palavra.id %>">
                                 <button class="btn btn-success">Editar</button>
                             </form>
 
                             </td>
                             <td>
-                                <form method="post" action="/admin/comissao/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
-                                    <input type="hidden" name="comissao" value="<%= comissao.id %>">
+                                <form method="post" action="/admin/usopalavra/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                    <input type="hidden" name="id" value="<%= palavra.id %>">
                                     <button class="btn btn-danger">Excluir</button>
                                 </form>
                         
@@ -45,9 +45,9 @@
     function confirmarDelecao(event, form){
         event.preventDefault();
         console.log("O formulário não foi enviado!");
-        var decision = confirm("Você quer realmente deletar essa Comissão?")
+        var decision = confirm("Você quer realmente deletar esse Evento?")
         if(decision){
-            console.log("Comissão excluida!")
+            console.log("Evento Excluido!")
             form.submit();
         }else{
             console.log("Não Deletada!")

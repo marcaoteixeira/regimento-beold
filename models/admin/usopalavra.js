@@ -35,8 +35,9 @@ class UsoPalavra{
         }
     }  
     async PalavraUpdate(id, evento, destinatario, tempo, fundamento){
-        try{                       
-            await knex.where({id: id}).update({id, evento, destinatario, tempo, fundamento}).table("tab_usopalavra")
+        try{ 
+            
+            await knex.where({id: id}).update({evento, destinatario, tempo, fundamento}).table("tab_usopalavra")
             console.log("Evento alterado com sucesso com sucesso!!!")
 
         }catch(error){

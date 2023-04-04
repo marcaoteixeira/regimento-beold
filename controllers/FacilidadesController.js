@@ -82,27 +82,29 @@ class FacilidadesController{
         
          var list_comiss = await Usopalavra.findAll()
  
-         res.render('admin/usopalavra/edicao', {comissoes: list_comiss});
+         res.render('admin/usopalavra/edicao', {palavras: list_comiss});
  
       }
-      async updatecomiss(req, res){
+      async updatepalavra(req, res){
 
          var id = req.body.id;
          var list_palavra = await Usopalavra.findById(id)
-         res.render('admin/usopalavra/update', {palavra: list_palavra});
+         res.render('admin/usopalavra/update', {palavras: list_palavra});
 
       }
-      async savecomiss(req, res){
+      async savepalavra(req, res){
+        var id = req.body.id
         var evento = req.body.evento;
         var destinatario =  req.body.destinatario;
         var tempo = req.body.tempo;
         var fundamento = req.body.fundamento
  
-         await Usopalavra.PalavraSave(evento, destinatario, tempo, fundamento);           
+         await Usopalavra.PalavraUpdate(id, evento, destinatario, tempo, fundamento);           
+         res.redirect('edit');     
  
       }
-      async deletecomiss(req, res){
-         var  id = req.body.comissao;        
+      async deletepalavra(req, res){
+         var  id = req.body.id;        
          //var list_comiss = await Usopalavra.findAll()
          await Usopalavra.PalavraDelete(id);
          res.redirect('edit');         

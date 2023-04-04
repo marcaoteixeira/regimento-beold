@@ -19,10 +19,10 @@ router.post('/admin/comissao/delete',FacilidadesController.deletecomiss);
 //Rotas de Facilidades Uso da Palavra
 router.get('/admin/usopalavra/new',FacilidadesController.newpalavra);
 router.post('/admin/usopalavra/new',FacilidadesController.palavrasave);
-router.get('/admin/usopalavra/edit',FacilidadesController.editcomiss);
-router.post('/admin/usopalavra/update',FacilidadesController.updatecomiss);
-router.post('/admin/usopalavra/save',FacilidadesController.savecomiss);
-router.post('/admin/palavra/delete',FacilidadesController.deletecomiss);
+router.get('/admin/usopalavra/edit',FacilidadesController.editpalavra);
+router.post('/admin/usopalavra/update',FacilidadesController.updatepalavra);
+router.post('/admin/usopalavra/save',FacilidadesController.savepalavra);
+router.post('/admin/usopalavra/delete',FacilidadesController.deletepalavra);
 
 
 module.exports = router;

@@ -5,18 +5,20 @@
     <div class="card">
         <div class="card-body">
             <div class="card-header">
-                <h2>Alterar Comissão</h2>                
+                <h2>Alterar Uso da Palavra</h2>                
             </div>
 
-            <% comissoes.forEach(comiss=> { %>
+            <% palavras.forEach(palavra=> { %>
                
-            <form method="post" action="/admin/comissao/save">
+            <form method="post" action="/admin/usopalavra/save">
 
-                <input type="hidden" name="id" value="<%= comiss.id %>">
-                Comissão:<input class="form-control" type="text" name="comissao" value="<%= comiss.comissao %>"><br>
-                Sigla:<input class="form-control" type="text" name="sigla" value="<%= comiss.sigla %>"><br>
-                Número de Membros:<input class="form-control" type="number" name="membros"
-                value="<%= comiss.membros %>"><br>
+                <input type="hidden" name="id" value="<%= palavra.id %>">
+                Evento:<input class="form-control" type="text" name="evento" value="<%= palavra.evento %>"><br>
+                Destinatário:<input class="form-control" type="text" name="destinatario" value="<%= palavra.destinatario %>"><br>
+                Tempo:<input class="form-control" type="text" name="tempo"
+                value="<%= palavra.tempo %>"><br>
+                Fundamento:<input class="form-control" type="text" name="fundamento"
+                value="<%= palavra.fundamento %>"><br>
                
 
                 <button class="btn btn-success">Alterar</button>
