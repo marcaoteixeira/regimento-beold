@@ -1,6 +1,7 @@
-var Quorum = require("../models/quorum");
-var Comissao = require("../models/admin/comissao.js")
-var Usopalavra = require("../models/admin/usopalavra.js")
+const Quorum = require("../models/quorum");
+const Comissao = require("../models/admin/comissao.js")
+const Usopalavra = require("../models/admin/usopalavra.js")
+const Requerimento = require("../models/admin/requerimento.js")
 
 class FacilidadesController{
     async lista(req, res){
@@ -105,7 +106,54 @@ class FacilidadesController{
       }
       async deletepalavra(req, res){
          var  id = req.body.id;        
-         //var list_comiss = await Usopalavra.findAll()
+         await Usopalavra.PalavraDelete(id);
+         res.redirect('edit');         
+         
+     }
+    
+    //Administração requerimentos
+
+    async newpalavra(req, res){
+        
+        res.render('admin/reuqerimentos/new');
+     }
+     async requerimentosave(req, res){
+         
+         var requerimento = req.body.requerimento;
+         var destinatario =  req.body.destinatario;
+         var tempo = req.body.tempo;
+         var fundamento = req.body.fundamento
+ 
+         await Usopalavra.PalavraSave(evento, destinatario, tempo, fundamento);  
+         res.redirect('new');         
+     }
+     async editpalavra(req, res){   
+        
+         var list_comiss = await Usopalavra.findAll()
+ 
+         res.render('admin/usopalavra/edicao', {palavras: list_comiss});
+ 
+      }
+      async updatepalavra(req, res){
+
+         var id = req.body.id;
+         var list_palavra = await Usopalavra.findById(id)
+         res.render('admin/usopalavra/update', {palavras: list_palavra});
+
+      }
+      async savepalavra(req, res){
+        var id = req.body.id
+        var evento = req.body.evento;
+        var destinatario =  req.body.destinatario;
+        var tempo = req.body.tempo;
+        var fundamento = req.body.fundamento
+ 
+         await Usopalavra.PalavraUpdate(id, evento, destinatario, tempo, fundamento);           
+         res.redirect('edit');     
+ 
+      }
+      async deletepalavra(req, res){
+         var  id = req.body.id;        
          await Usopalavra.PalavraDelete(id);
          res.redirect('edit');         
          

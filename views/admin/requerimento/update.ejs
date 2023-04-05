@@ -1,0 +1,33 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Alterar Uso da Palavra</h2>                
+            </div>
+
+            <% palavras.forEach(palavra=> { %>
+               
+            <form method="post" action="/admin/usopalavra/save">
+
+                <input type="hidden" name="id" value="<%= palavra.id %>">
+                Evento:<input class="form-control" type="text" name="evento" value="<%= palavra.evento %>"><br>
+                Destinatário:<input class="form-control" type="text" name="destinatario" value="<%= palavra.destinatario %>"><br>
+                Tempo:<input class="form-control" type="text" name="tempo"
+                value="<%= palavra.tempo %>"><br>
+                Fundamento:<input class="form-control" type="text" name="fundamento"
+                value="<%= palavra.fundamento %>"><br>
+               
+
+                <button class="btn btn-success">Alterar</button>
+            </form>
+            <% }) %>    
+        </div>
+    </div>
+
+
+</div>
+        
+<%- include('../../partials/footer.ejs') %>

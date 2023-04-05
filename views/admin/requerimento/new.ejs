@@ -1,0 +1,29 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Adicionar Uso da Palavra</h2>
+            </div>
+
+            <form method="post" action="/admin/usopalavra/new">
+                Evento:<input class="form-control" type="text" name="evento" style="min-width: 50px;"
+                    placeholder="Evento"><br>
+                Destinatário:<input class="form-control" type="text" name="destinatario" placeholder="Destinatário"><br>
+                Tempo:<input class="form-control" type="text" name="tempo"
+                placeholder="Tempo utilizado"><br>
+                Fundamento:<input class="form-control" type="text" name="fundamento"
+                placeholder="Fundamento"><br>
+               
+
+                <button class="btn btn-success">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+        
+<%- include('../../partials/footer.ejs') %>

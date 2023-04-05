@@ -1,0 +1,56 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+    <hr>
+    <div class="container">
+        <div class="card-header">
+            <h2>Uso da Palavra - Edição</h2>
+        </div>
+        
+            <table class="table table-bordered">
+                           
+                <tbody>            
+                    <% palavras.forEach((palavra)=> { %>
+                        <tr>
+                            <td>
+                                <%= palavra.id %>
+                            </td>
+                            <td>
+                                <%= palavra.evento %> - <%= palavra.destinatario %>
+                            </td>
+                            <td> 
+                            
+                                <form method="post" action="/admin/usopalavra/update">
+                                <input type="hidden" name="id" value="<%= palavra.id %>">
+                                <button class="btn btn-success">Editar</button>
+                            </form>
+
+                            </td>
+                            <td>
+                                <form method="post" action="/admin/usopalavra/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                    <input type="hidden" name="id" value="<%= palavra.id %>">
+                                    <button class="btn btn-danger">Excluir</button>
+                                </form>
+                        
+                        
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            
+            </table>
+               
+    </div>
+<%- include('../../partials/footer.ejs') %>
+<script>
+    function confirmarDelecao(event, form){
+        event.preventDefault();
+        console.log("O formulário não foi enviado!");
+        var decision = confirm("Você quer realmente deletar esse Evento?")
+        if(decision){
+            console.log("Evento Excluido!")
+            form.submit();
+        }else{
+            console.log("Não Deletada!")
+        }
+    }
+</script>

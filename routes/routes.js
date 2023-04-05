@@ -24,5 +24,13 @@ router.post('/admin/usopalavra/update',FacilidadesController.updatepalavra);
 router.post('/admin/usopalavra/save',FacilidadesController.savepalavra);
 router.post('/admin/usopalavra/delete',FacilidadesController.deletepalavra);
 
+//Rotas de Facilidades Requerimentos
+router.get('/admin/requerimentos/new',FacilidadesController.newrequerimento);
+router.post('/admin/requerimentos/new',FacilidadesController.requerimentosave);
+router.get('/admin/requerimentos/edit',FacilidadesController.editrequerimento);
+router.post('/admin/requerimentos/update',FacilidadesController.updaterequerimento);
+router.post('/admin/requerimentos/save',FacilidadesController.saverequerimento);
+router.post('/admin/reuqerimentos/delete',FacilidadesController.deleterequerimento);
+
 
 module.exports = router;
