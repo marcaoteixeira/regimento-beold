@@ -25,7 +25,7 @@ class Requerimento{
     }
     async RequerimentoSave(requerimento, fundamento, autor, obs){
         try{                       
-            await knex.insert({reuqerimento, fundamento, autor, obs}).table("tab_requerimento");
+            await knex.insert({requerimento, fundamento, autor, obs}).table("tab_requerimento");
             console.log("Requerimento Cadastrado com sucesso!!!")
 
         }catch(error){

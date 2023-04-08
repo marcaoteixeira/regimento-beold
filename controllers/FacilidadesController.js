@@ -113,18 +113,19 @@ class FacilidadesController{
     
     //Administração requerimentos
 
-    async newpalavra(req, res){
+    async newrequerimento(req, res){
         
-        res.render('admin/reuqerimentos/new');
+        res.render('admin/requerimento/new');
      }
      async requerimentosave(req, res){
          
          var requerimento = req.body.requerimento;
-         var destinatario =  req.body.destinatario;
-         var tempo = req.body.tempo;
          var fundamento = req.body.fundamento
+         var autor =  req.body.autor;         
+         var obs = req.body.obs;
+         
  
-         await Usopalavra.PalavraSave(evento, destinatario, tempo, fundamento);  
+         await Requerimento.RequerimentoSave(requerimento, fundamento, autor, obs);  
          res.redirect('new');         
      }
      async editpalavra(req, res){   
