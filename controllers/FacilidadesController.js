@@ -128,34 +128,35 @@ class FacilidadesController{
          await Requerimento.RequerimentoSave(requerimento, fundamento, autor, obs);  
          res.redirect('new');         
      }
-     async editpalavra(req, res){   
+     async editrequerimento(req, res){   
         
-         var list_comiss = await Usopalavra.findAll()
+         var list_reque = await Requerimento.findAll()
  
-         res.render('admin/usopalavra/edicao', {palavras: list_comiss});
- 
+         res.render('admin/requerimento/edicao', {requerimento: list_reque});
+        
       }
-      async updatepalavra(req, res){
+      async updaterequerimento(req, res){
 
          var id = req.body.id;
-         var list_palavra = await Usopalavra.findById(id)
-         res.render('admin/usopalavra/update', {palavras: list_palavra});
+         var list_reque = await Requerimento.findById(id)
+         res.render('admin/requerimento/update', {requerimento: list_reque});
 
       }
-      async savepalavra(req, res){
+      async saverequerimento(req, res){
+        
         var id = req.body.id
-        var evento = req.body.evento;
-        var destinatario =  req.body.destinatario;
-        var tempo = req.body.tempo;
+        var requerimento = req.body.requerimento;
         var fundamento = req.body.fundamento
+        var autor =  req.body.autor;         
+        var obs = req.body.obs;
  
-         await Usopalavra.PalavraUpdate(id, evento, destinatario, tempo, fundamento);           
+         await Requerimento.RequerimentoUpdate(id, requerimento, fundamento, autor, obs);           
          res.redirect('edit');     
  
       }
-      async deletepalavra(req, res){
+      async deleterequerimento(req, res){
          var  id = req.body.id;        
-         await Usopalavra.PalavraDelete(id);
+         await Requerimento.RequerimentoDelete(id);
          res.redirect('edit');         
          
      }

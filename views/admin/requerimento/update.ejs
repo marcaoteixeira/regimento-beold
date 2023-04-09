@@ -5,20 +5,20 @@
     <div class="card">
         <div class="card-body">
             <div class="card-header">
-                <h2>Alterar Uso da Palavra</h2>                
+                <h2>Alterar Requerimentos</h2>                
             </div>
 
-            <% palavras.forEach(palavra=> { %>
+            <% requerimento.forEach(reque=> { %>
                
-            <form method="post" action="/admin/usopalavra/save">
+            <form method="post" action="/admin/requerimento/save">
 
-                <input type="hidden" name="id" value="<%= palavra.id %>">
-                Evento:<input class="form-control" type="text" name="evento" value="<%= palavra.evento %>"><br>
-                Destinatário:<input class="form-control" type="text" name="destinatario" value="<%= palavra.destinatario %>"><br>
-                Tempo:<input class="form-control" type="text" name="tempo"
-                value="<%= palavra.tempo %>"><br>
-                Fundamento:<input class="form-control" type="text" name="fundamento"
-                value="<%= palavra.fundamento %>"><br>
+                <input type="hidden" name="id" value="<%= reque.id %>">
+                Requerimento:<input class="form-control" type="text" name="requerimento" value="<%= reque.requerimento %>"><br>
+                Fundamento:<input class="form-control" type="text" name="fundamento" value="<%= reque.fundamento %>"><br>
+                Autor:<input class="form-control" type="text" name="autor"
+                value="<%= reque.autor %>"><br>
+                Observação:<input class="form-control" type="text" name="obs"
+                value="<%= reque.obs %>"><br>
                
 
                 <button class="btn btn-success">Alterar</button>

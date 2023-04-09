@@ -27,10 +27,10 @@ router.post('/admin/usopalavra/delete',FacilidadesController.deletepalavra);
 //Rotas de Facilidades Requerimentos
 router.get('/admin/requerimento/new',FacilidadesController.newrequerimento);
 router.post('/admin/requerimento/new',FacilidadesController.requerimentosave);
-//router.get('/admin/requerimento/edit',FacilidadesController.editrequerimento);
-//router.post('/admin/requerimento/update',FacilidadesController.updaterequerimento);
-//router.post('/admin/requerimento/save',FacilidadesController.saverequerimento);
-//router.post('/admin/reuqerimento/delete',FacilidadesController.deleterequerimento);
+router.get('/admin/requerimento/edit',FacilidadesController.editrequerimento);
+router.post('/admin/requerimento/update',FacilidadesController.updaterequerimento);
+router.post('/admin/requerimento/save',FacilidadesController.saverequerimento);
+router.post('/admin/requerimento/delete',FacilidadesController.deleterequerimento);
 
 
 module.exports = router;
