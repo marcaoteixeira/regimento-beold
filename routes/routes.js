@@ -32,5 +32,11 @@ router.post('/admin/requerimento/update',FacilidadesController.updaterequeriment
 router.post('/admin/requerimento/save',FacilidadesController.saverequerimento);
 router.post('/admin/requerimento/delete',FacilidadesController.deleterequerimento);
 
-
+//Rotas de Facilidades Apresentação de Emenda
+router.get('/admin/emenda/new',FacilidadesController.newemenda);
+router.post('/admin/emenda/new',FacilidadesController.emendasave);
+router.get('/admin/emenda/edit',FacilidadesController.editemenda);
+router.post('/admin/emenda/update',FacilidadesController.updateemenda);
+router.post('/admin/emenda/save',FacilidadesController.saveemenda);
+router.post('/admin/emenda/delete',FacilidadesController.deleteemenda);
 module.exports = router;

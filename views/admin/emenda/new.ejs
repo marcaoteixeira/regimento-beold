@@ -1,0 +1,33 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Adicionar Apresentação de Emendas</h2>
+            </div>
+
+            <form method="post" action="/admin/emenda/new">
+                Tipo Emenda:
+                <select name="id_tipo" class="form-control">
+                    <% t_emenda.forEach((temenda)=> { %>
+                        <option value="<%= temenda.id %>" title="<%= temenda.id %>">
+                            <%= temenda.tipoemenda %>
+                        </option>
+                        <% }) %>
+                </select>
+                Emenda:<input class="form-control" type="text" name="emenda" placeholder="Emenda"><br>
+                Descrição:<input class="form-control" type="text" name="descricao"
+                placeholder="Descrição"><br>
+               
+
+                <button class="btn btn-success">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+        
+<%- include('../../partials/footer.ejs') %>

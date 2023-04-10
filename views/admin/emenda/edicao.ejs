@@ -1,0 +1,56 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+    <hr>
+    <div class="container">
+        <div class="card-header">
+            <h2>Apresentação de Emendas - Edição</h2>
+        </div>
+        
+            <table class="table table-bordered">
+                           
+                <tbody>            
+                    <% emendas.forEach((emenda)=> { %>
+                        <tr>
+                            <td>
+                                <%= emenda.id %>
+                            </td>
+                            <td>
+                                <%= emenda.emenda %> 
+                            </td>
+                            <td> 
+                            
+                                <form method="post" action="/admin/emenda/update">
+                                <input type="hidden" name="id" value="<%= emenda.id %>">
+                                <button class="btn btn-success">Editar</button>
+                            </form>
+
+                            </td>
+                            <td>
+                                <form method="post" action="/admin/emenda/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                    <input type="hidden" name="id" value="<%= emenda.id %>">
+                                    <button class="btn btn-danger">Excluir</button>
+                                </form>
+                        
+                        
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            
+            </table>
+               
+    </div>
+<%- include('../../partials/footer.ejs') %>
+<script>
+    function confirmarDelecao(event, form){
+        event.preventDefault();
+        console.log("O formulário não foi enviado!");
+        var decision = confirm("Você quer realmente deletar essa Emenda?")
+        if(decision){
+            console.log("Emenda excluida!")
+            form.submit();
+        }else{
+            console.log("Não Deletada!")
+        }
+    }
+</script>

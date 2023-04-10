@@ -2,6 +2,8 @@ const Quorum = require("../models/quorum");
 const Comissao = require("../models/admin/comissao.js")
 const Usopalavra = require("../models/admin/usopalavra.js")
 const Requerimento = require("../models/admin/requerimento.js")
+const Emenda = require("../models/admin/emenda.js")
+
 
 class FacilidadesController{
     async lista(req, res){
@@ -160,7 +162,52 @@ class FacilidadesController{
          res.redirect('edit');         
          
      }
-     
+      //Administração Apresentação de Emendas
+
+    async newemenda(req, res){
+        var list_temenda = await Emenda.tEmendafindAll();
+        
+        res.render('admin/emenda/new',{t_emenda: list_temenda});
+     }
+     async emendasave(req, res){
+         
+         var id_tipo = req.body.id_tipo;
+         var emenda = req.body.emenda;
+         var descricao =  req.body.descricao;
+         
+         await Emenda.EmendaSave(id_tipo, emenda, descricao);  
+         res.redirect('new');         
+     }
+     async editemenda(req, res){   
+        
+         var list_emenda = await Emenda.findAll()
+ 
+         res.render('admin/emenda/edicao', {emendas: list_emenda});
+        
+      }
+      async updateemenda(req, res){
+
+         var id = req.body.id;
+         var list_emenda = await Emenda.findById(id)
+         res.render('admin/emenda/update', {emendas: list_emenda});
+
+      }
+      async saveemenda(req, res){
+        var id = req.body.id;
+        var id_tipo = req.body.id_tipo;
+        var emenda = req.body.emenda
+        var descricao =  req.body.descricao;         
+         
+         await Emenda.EmendaUpdate(id, id_tipo, emenda, descricao);           
+         res.redirect('edit');     
+ 
+      }
+      async deleteemenda(req, res){
+         var  id = req.body.id;        
+         await Emenda.EmendaDelete(id);
+         res.redirect('edit');         
+         
+     }
    
 }
 
