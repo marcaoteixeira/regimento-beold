@@ -9,6 +9,8 @@ router.get('/',HomeController.index);
 //Rotas de Facilidades Comissões
 router.get('/facilidades',FacilidadesController.lista);
 router.post('/list_quorum',FacilidadesController.quorum);
+
+//Rotas de Facilidades Comissões
 router.get('/admin/comissao/new',FacilidadesController.newcomiss);
 router.post('/admin/comissao/new',FacilidadesController.comissaosave);
 router.get('/admin/comissao/edit',FacilidadesController.editcomiss);
@@ -39,4 +41,15 @@ router.get('/admin/emenda/edit',FacilidadesController.editemenda);
 router.post('/admin/emenda/update',FacilidadesController.updateemenda);
 router.post('/admin/emenda/save',FacilidadesController.saveemenda);
 router.post('/admin/emenda/delete',FacilidadesController.deleteemenda);
+module.exports = router;
+
+//Rotas de Facilidades Recursos
+
+router.get('/admin/recurso/new',FacilidadesController.newrecurso);
+router.post('/admin/recurso/new',FacilidadesController.recursosave);
+router.get('/admin/recurso/edit',FacilidadesController.editerecurso);
+router.post('/admin/recurso/update',FacilidadesController.updaterecurso);
+router.post('/admin/recurso/save',FacilidadesController.saverecurso);
+router.post('/admin/recurso/delete',FacilidadesController.deleterecurso);
+
 module.exports = router;

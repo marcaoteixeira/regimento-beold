@@ -1,0 +1,35 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Alterar Requerimentos</h2>                
+            </div>
+
+            <% recursos.forEach(recurso=> { %>
+               
+            <form method="post" action="/admin/recurso/save">
+
+                <input type="hidden" name="id" value="<%= recurso.id %>">
+                Recurso:<input class="form-control" type="text" name="recurso" value="<%= recurso.recurso %>"><br>
+                Fundamento:<input class="form-control" type="text" name="fundamento" value="<%= recurso.fundamento %>"><br>
+                Iniciativa:<input class="form-control" type="text" name="iniciativa"
+                value="<%= recurso.iniciativa %>"><br>
+                Prazo:<input class="form-control" type="text" name="prazo"
+                value="<%= recurso.prazo %>"><br>
+                Decisão:<input class="form-control" type="text" name="decisao"
+                value="<%= recurso.decisao %>"><br>
+               
+
+                <button class="btn btn-success">Alterar</button>
+            </form>
+            <% }) %>    
+        </div>
+    </div>
+
+
+</div>
+        
+<%- include('../../partials/footer.ejs') %>

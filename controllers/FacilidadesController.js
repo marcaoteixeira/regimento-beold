@@ -3,6 +3,7 @@ const Comissao = require("../models/admin/comissao.js")
 const Usopalavra = require("../models/admin/usopalavra.js")
 const Requerimento = require("../models/admin/requerimento.js")
 const Emenda = require("../models/admin/emenda.js")
+const Recurso = require("../models/admin/recurso.js")
 
 
 class FacilidadesController{
@@ -208,6 +209,55 @@ class FacilidadesController{
          res.redirect('edit');         
          
      }
+
+   //Administração Apresentação de Recursos
+
+    async newrecurso(req, res){         
+      res.render('admin/recurso/new');
+   }
+   async recursosave(req, res){
+       
+       var recurso = req.body.recurso;
+       var fundamento = req.body.fundamento;
+       var iniciativa =  req.body.iniciativa;
+       var prazo =  req.body.prazo;
+       var decisao =  req.body.decisao;
+       
+       await Recurso.RecursoSave(recurso, fundamento, iniciativa, prazo, decisao);  
+       res.redirect('new');         
+   }
+   async editerecurso(req, res){   
+      
+       var list_recurso = await Recurso.findAll()
+
+       res.render('admin/recurso/edicao', {recursos: list_recurso});
+      
+    }
+    async updaterecurso(req, res){
+
+       var id = req.body.id;
+       var list_recurso = await Recurso.findById(id)
+       res.render('admin/recurso/update', {recursos: list_recurso});
+
+    }
+    async saverecurso(req, res){
+      var id = req.body.id;
+      var recurso = req.body.recurso;
+      var fundamento = req.body.fundamento;
+      var iniciativa =  req.body.iniciativa;
+      var prazo =  req.body.prazo;
+      var decisao =  req.body.decisao;         
+       
+       await Recurso.RecursoUpdate(id, recurso, fundamento, iniciativa, prazo, decisao);           
+       res.redirect('edit');     
+
+    }
+    async deleterecurso(req, res){
+       var  id = req.body.id;        
+       await Recurso.RecursoDelete(id);
+       res.redirect('edit');         
+       
+   }
    
 }
 

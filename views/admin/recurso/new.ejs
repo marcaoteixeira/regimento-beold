@@ -1,0 +1,31 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Adicionar Recursos</h2>
+            </div>
+
+            <form method="post" action="/admin/recurso/new">
+                Recurso:<input class="form-control" type="text" name="recurso" style="min-width: 50px;"
+                    placeholder="Recurso"><br>
+                Fundamento:<input class="form-control" type="text" name="fundamento" placeholder="Fundamento"><br>
+                Iniciativa:<input class="form-control" type="text" name="iniciativa"
+                placeholder="Iniciativa do recurso"><br>
+                Prazo:<input class="form-control" type="text" name="prazo"
+                placeholder="Prazo"><br>
+                Decisão:<input class="form-control" type="text" name="decisao"
+                placeholder="Quem decide"><br>
+               
+
+                <button class="btn btn-success">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+        
+<%- include('../../partials/footer.ejs') %>

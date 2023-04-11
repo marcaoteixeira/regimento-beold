@@ -1,0 +1,56 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+    <hr>
+    <div class="container">
+        <div class="card-header">
+            <h2>Recursos - Edição</h2>
+        </div>
+        
+            <table class="table table-bordered">
+                           
+                <tbody>            
+                    <% recursos.forEach((recurso)=> { %>
+                        <tr>
+                            <td>
+                                <%= recurso.id %>
+                            </td>
+                            <td>
+                                <%= recurso.recurso %> 
+                            </td>
+                            <td> 
+                            
+                                <form method="post" action="/admin/recurso/update">
+                                <input type="hidden" name="id" value="<%= recurso.id %>">
+                                <button class="btn btn-success">Editar</button>
+                            </form>
+
+                            </td>
+                            <td>
+                                <form method="post" action="/admin/recurso/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                    <input type="hidden" name="id" value="<%= recurso.id %>">
+                                    <button class="btn btn-danger">Excluir</button>
+                                </form>
+                        
+                        
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            
+            </table>
+               
+    </div>
+<%- include('../../partials/footer.ejs') %>
+<script>
+    function confirmarDelecao(event, form){
+        event.preventDefault();
+        console.log("O formulário não foi enviado!");
+        var decision = confirm("Você quer realmente deletar esse Recurso?")
+        if(decision){
+            console.log("Recurso Excluido!")
+            form.submit();
+        }else{
+            console.log("Não Deletado!")
+        }
+    }
+</script>
