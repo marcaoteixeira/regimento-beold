@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+        <hr>
+        <div class="container">
+            <div class="card-header">
+                <h2>Uso da Palavra</h2>
+            </div>
+            <div class="card-body">
+                
+                <% usopalavra.forEach((palavra)=> { %>
+
+                    <p>
+                        Evento: <b><%= palavra.evento %><br></b>
+                        Destinatário: <b><%= palavra.destinatario %></b><br>
+                        Tempo: <b><%= palavra.tempo %><br></b>
+                        Fundamento: <b><%= palavra.fundamento %><br></b>
+                    </p>
+
+                    <% }) %>
+
+            </div>
+            <%- include('../partials/footer.ejs') %></hr>

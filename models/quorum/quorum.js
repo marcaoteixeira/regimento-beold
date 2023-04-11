@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-var knex = require("../database/conection");
+var knex = require("../../database/conection");
 
 class Quorum{
     async findAll(){

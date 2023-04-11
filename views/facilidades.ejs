@@ -1,17 +1,38 @@
 <%- include('partials/header.ejs') %>
-<%- include('partials/navbar.ejs') %>
-<body>
-    <div class="container">
-        <h1>Facilidades</h1>
-        <div class="row">
-            <div class="col">
-                <main>
-                    <a href="/quorum" style="text-decoration:none"><h4>Quorum</h4></a>
-                </main>
+    <%- include('partials/navbar.ejs') %>
+
+        <body>
+            <div class="container">
+                <h1>Facilidades</h1>
+                <div class="row">
+                    <div class="col">
+                        <main>
+                            <a href="/usopalavra" style="text-decoration:none">
+                                <h4>Uso da Palavra</h4>
+                            </a>
+                            <br>
+
+                            <a href="/requerimentos" style="text-decoration:none">
+                                <h4>Requerimentos</h4>
+                            </a>
+
+
+                            <a href="/emendas" style="text-decoration:none">
+                                <h4>Apresentaçao de Emendas</h4>
+                            </a>
+
+                            <br>
+
+                            <a href="/quorum" style="text-decoration:none">
+                                <h4>Quorum</h4>
+                            </a><br>
+                        </main>
+                    </div>
+                </div>
+
+
             </div>
 
-    </div>
-    
-    
-</body>
-<%- include('partials/footer.ejs') %>
+
+        </body>
+        <%- include('partials/footer.ejs') %>

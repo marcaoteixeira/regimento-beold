@@ -6,9 +6,13 @@ var HomeController = require("../controllers/HomeController");
 
 router.get('/',HomeController.index);
 
-//Rotas de Facilidades Comissões
-router.get('/facilidades',FacilidadesController.lista);
+//Rotas de Facilidades 
+router.get('/facilidades',FacilidadesController.facilidades);
+router.get('/quorum',FacilidadesController.lista);
 router.post('/list_quorum',FacilidadesController.quorum);
+router.get('/usopalavra',FacilidadesController.usopalavra);
+//router.post('/list_quorum',FacilidadesController.requerimentos);
+//router.post('/list_quorum',FacilidadesController.emendas);
 
 //Rotas de Facilidades Comissões
 router.get('/admin/comissao/new',FacilidadesController.newcomiss);
