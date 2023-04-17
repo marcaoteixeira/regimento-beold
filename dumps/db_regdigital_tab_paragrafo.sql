@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_capitulo`
+-- Table structure for table `tab_paragrafo`
 --
 
-DROP TABLE IF EXISTS `tab_capitulo`;
+DROP TABLE IF EXISTS `tab_paragrafo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_capitulo` (
+CREATE TABLE `tab_paragrafo` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `id_titulo` int unsigned NOT NULL,
-  `capitulo` varchar(100) NOT NULL DEFAULT '',
+  `id_artigo` int unsigned NOT NULL DEFAULT '0',
+  `paragrafo` longtext NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_capitulo-titulo` (`id_titulo`),
-  CONSTRAINT `fk_capitulo-titulo` FOREIGN KEY (`id_titulo`) REFERENCES `tab_titulo` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de capítulos do RICCD';
+  KEY `fk-paragrafo-artigo` (`id_artigo`),
+  CONSTRAINT `fk-paragrafo-artigo` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Paragrafos do  RICCD';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_capitulo`
+-- Dumping data for table `tab_paragrafo`
 --
 
-LOCK TABLES `tab_capitulo` WRITE;
-/*!40000 ALTER TABLE `tab_capitulo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tab_capitulo` ENABLE KEYS */;
+LOCK TABLES `tab_paragrafo` WRITE;
+/*!40000 ALTER TABLE `tab_paragrafo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_paragrafo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

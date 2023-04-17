@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
+const HomeController = require("../controllers/HomeController");
 const FacilidadesController = require("../controllers/FacilidadesController");
-var HomeController = require("../controllers/HomeController");
+const RegimentoController = reuqire("../controllers/RegimentoController")
 
 
 router.get('/',HomeController.index);

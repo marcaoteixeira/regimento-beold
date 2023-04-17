@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `tab_artigo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tab_artigo` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `id_titulo` int unsigned NOT NULL,
-  `artigo` varchar(100) NOT NULL DEFAULT '',
+  `id_capitulo` int unsigned NOT NULL,
+  `artigo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `capitulo=>paragrafo` (`id_titulo`),
-  CONSTRAINT `capitulo=>paragrafo` FOREIGN KEY (`id_titulo`) REFERENCES `tab_capitulo` (`id`) ON UPDATE CASCADE
+  KEY `capitulo=>paragrafo` (`id_capitulo`) USING BTREE,
+  CONSTRAINT `FK_tab_artigo_tab_capitulo` FOREIGN KEY (`id_capitulo`) REFERENCES `tab_capitulo` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de artigos do RICCD';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-13 12:54:14
+-- Dump completed on 2023-04-17 13:03:46
