@@ -1,0 +1,29 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Adicionar Requerimento</h2>
+            </div>
+
+            <form method="post" action="/admin/requerimento/new">
+                Requerimento:<input class="form-control" type="text" name="requerimento" style="min-width: 50px;"
+                    placeholder="Requerimento"><br>
+                Fundamento:<input class="form-control" type="text" name="fundamento" placeholder="Fundamento"><br>
+                Autor:<input class="form-control" type="text" name="autor"
+                placeholder="Autor do requerimento"><br>
+                Observação:<input class="form-control" type="text" name="obs"
+                placeholder="Observação"><br>
+               
+
+                <button class="btn btn-success">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+        
+<%- include('../../partials/footer.ejs') %>

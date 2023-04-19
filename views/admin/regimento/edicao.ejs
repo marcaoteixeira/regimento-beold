@@ -1,0 +1,56 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+    <hr>
+    <div class="container">
+        <div class="card-header">
+            <h2>Requerimentos - Edição</h2>
+        </div>
+        
+            <table class="table table-bordered">
+                           
+                <tbody>            
+                    <% requerimento.forEach((reque)=> { %>
+                        <tr>
+                            <td>
+                                <%= reque.id %>
+                            </td>
+                            <td>
+                                <%= reque.requerimento %> 
+                            </td>
+                            <td> 
+                            
+                                <form method="post" action="/admin/requerimento/update">
+                                <input type="hidden" name="id" value="<%= reque.id %>">
+                                <button class="btn btn-success">Editar</button>
+                            </form>
+
+                            </td>
+                            <td>
+                                <form method="post" action="/admin/requerimento/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                    <input type="hidden" name="id" value="<%= reque.id %>">
+                                    <button class="btn btn-danger">Excluir</button>
+                                </form>
+                        
+                        
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            
+            </table>
+               
+    </div>
+<%- include('../../partials/footer.ejs') %>
+<script>
+    function confirmarDelecao(event, form){
+        event.preventDefault();
+        console.log("O formulário não foi enviado!");
+        var decision = confirm("Você quer realmente deletar esse Requerimento?")
+        if(decision){
+            console.log("Requerimento Excluido!")
+            form.submit();
+        }else{
+            console.log("Não Deletado!")
+        }
+    }
+</script>

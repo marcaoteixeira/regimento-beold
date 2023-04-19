@@ -1,0 +1,33 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Alterar Requerimentos</h2>                
+            </div>
+
+            <% requerimento.forEach(reque=> { %>
+               
+            <form method="post" action="/admin/requerimento/save">
+
+                <input type="hidden" name="id" value="<%= reque.id %>">
+                Requerimento:<input class="form-control" type="text" name="requerimento" value="<%= reque.requerimento %>"><br>
+                Fundamento:<input class="form-control" type="text" name="fundamento" value="<%= reque.fundamento %>"><br>
+                Autor:<input class="form-control" type="text" name="autor"
+                value="<%= reque.autor %>"><br>
+                Observação:<input class="form-control" type="text" name="obs"
+                value="<%= reque.obs %>"><br>
+               
+
+                <button class="btn btn-success">Alterar</button>
+            </form>
+            <% }) %>    
+        </div>
+    </div>
+
+
+</div>
+        
+<%- include('../../partials/footer.ejs') %>
