@@ -62,10 +62,10 @@ router.post('/admin/recurso/delete',FacilidadesController.deleterecurso);
 
 router.get('/admin/titulo/new',RegimentoController.newtitulo);
 router.post('/admin/titulo/new',RegimentoController.titulosave);
-//router.get('/admin/recurso/edit',FacilidadesController.editerecurso);
-//router.post('/admin/recurso/update',FacilidadesController.updaterecurso);
-//router.post('/admin/recurso/save',FacilidadesController.saverecurso);
-//router.post('/admin/recurso/delete',FacilidadesController.deleterecurso);
+router.get('/admin/titulo/edit',RegimentoController.edittitulo);
+router.post('/admin/titulo/update',RegimentoController.updatetitulo);
+router.post('/admin/titulo/save',RegimentoController.savetitulo);
+router.post('/admin/titulo/delete',RegimentoController.deletetitulo);
 
 module.exports = router;
 

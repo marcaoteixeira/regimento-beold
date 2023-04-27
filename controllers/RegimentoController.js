@@ -20,14 +20,14 @@ class RegimentoController{
 
       var list_titulo = await Titulo.findAll()
 
-      res.render('admin/regimento/titulo/tituloedicao', { titulo: list_titulo });
+      res.render('admin/regimento/tituloedicao', { titulo: list_titulo });
 
    }
    async updatetitulo(req, res) {
 
       var id = req.body.id;
       var list_titulo = await Titulo.findById(id)
-      res.render('admin/regimento/titulo/tituloupdate', { titulo: list_titulo });
+      res.render('admin/regimento/tituloupdate', { titulo: list_titulo });
 
    }
    async savetitulo(req, res) {
@@ -35,6 +35,7 @@ class RegimentoController{
       var titulo = req.body.titulo;
       
       await Titulo.TituloUpdate(id, titulo);
+      
       res.redirect('edit');
 
    }
