@@ -1,9 +1,10 @@
 const Regimento = require("../models/regimento/regimento");
 const Titulo = require("../models/admin/titulo");
+const Capitulo = require("../models/admin/capitulo");
 
 class RegimentoController{
 
-   //Administração Cadastro de Dispositivos do Regimento
+   //Administração Cadastro Titulo do Regimento
 
    async newtitulo(req, res) {
 
@@ -40,6 +41,56 @@ class RegimentoController{
 
    }
    async deletetitulo(req, res) {
+      var id = req.body.id;
+      await Titulo.TituloDelete(id);
+      res.redirect('edit');
+
+   }
+
+   //Administração Cadastro Capitulo do Regimento
+
+   async newcapitulo(req, res) {
+      var list_titulo = await Capitulo.tfindAll();
+      res.render('admin/regimento/capitulonew',{titulo: list_titulo});
+   }
+   async capitulosave(req, res) {
+
+      var id_titulo = req.body.id_titulo
+      var capitulo = req.body.capitulo;
+      
+      await Capitulo.CapituloSave(id_titulo, capitulo);
+      res.redirect('new');
+   }
+   async selecttitulo(req, res) {
+      var list_titulo = await Capitulo.tfindAll();
+      res.render('admin/regimento/capituloselect',{titulo: list_titulo});
+
+   }
+   async editcapitulo(req, res) {
+
+      var list_titulo = await Capitulo.tfindAll();
+      var list_capitulo = await Capitulo.findAll()
+
+      res.render('admin/regimento/capituloedicao',{ capitulo: list_capitulo, titulo: list_titulo });
+
+   }
+   async updatecapitulo(req, res) {
+
+      var id = req.body.id;
+      var list_titulo = await Titulo.findById(id)
+      res.render('admin/regimento/tituloupdate', { titulo: list_titulo });
+
+   }
+   async savecapitulo(req, res) {
+      var id = req.body.id
+      var titulo = req.body.titulo;
+      
+      await Titulo.TituloUpdate(id, titulo);
+      
+      res.redirect('edit');
+
+   }
+   async deletecapitulo(req, res) {
       var id = req.body.id;
       await Titulo.TituloDelete(id);
       res.redirect('edit');
