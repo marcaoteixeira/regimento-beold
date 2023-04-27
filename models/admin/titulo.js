@@ -23,7 +23,7 @@ class Titulo{
 
         }
     }
-    async TituloSave(id_capitulo, artigo){
+    async TituloSave(titulo){
         try{                       
             await knex.insert({ titulo }).table("tab_titulo");
             console.log("Cadastro com sucesso!!!")
@@ -48,7 +48,7 @@ class Titulo{
     async TituloDelete(id){
         try{                       
             await knex.where({id: id}).delete().table("tab_titulo")
-            console.log("Artigo excluido com sucesso!!!")            
+            console.log("Titulo excluido com sucesso!!!")            
 
         }catch(error){
             console.log(error);            

@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const HomeController = require("../controllers/HomeController");
 const FacilidadesController = require("../controllers/FacilidadesController");
-//const RegimentoController = reuqire("../controllers/RegimentoController")
+const RegimentoController = require("../controllers/RegimentoController");
 
 
 router.get('/',HomeController.index);
@@ -46,7 +46,7 @@ router.get('/admin/emenda/edit',FacilidadesController.editemenda);
 router.post('/admin/emenda/update',FacilidadesController.updateemenda);
 router.post('/admin/emenda/save',FacilidadesController.saveemenda);
 router.post('/admin/emenda/delete',FacilidadesController.deleteemenda);
-module.exports = router;
+
 
 //Rotas de Facilidades Recursos
 
@@ -57,4 +57,15 @@ router.post('/admin/recurso/update',FacilidadesController.updaterecurso);
 router.post('/admin/recurso/save',FacilidadesController.saverecurso);
 router.post('/admin/recurso/delete',FacilidadesController.deleterecurso);
 
+
+//Rotas Regimento Titulo
+
+router.get('/admin/titulo/new',RegimentoController.newtitulo);
+router.post('/admin/titulo/new',RegimentoController.titulosave);
+//router.get('/admin/recurso/edit',FacilidadesController.editerecurso);
+//router.post('/admin/recurso/update',FacilidadesController.updaterecurso);
+//router.post('/admin/recurso/save',FacilidadesController.saverecurso);
+//router.post('/admin/recurso/delete',FacilidadesController.deleterecurso);
+
 module.exports = router;
+

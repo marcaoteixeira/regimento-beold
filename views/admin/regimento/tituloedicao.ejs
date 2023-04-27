@@ -3,31 +3,31 @@
     <hr>
     <div class="container">
         <div class="card-header">
-            <h2>Requerimentos - Edição</h2>
+            <h2>Titulos - Edição</h2>
         </div>
         
             <table class="table table-bordered">
                            
                 <tbody>            
-                    <% requerimento.forEach((reque)=> { %>
+                    <% titulo.forEach((titulo)=> { %>
                         <tr>
                             <td>
-                                <%= reque.id %>
+                                <%= titulo.id %>
                             </td>
                             <td>
-                                <%= reque.requerimento %> 
+                                <%= titulo.titulo %> 
                             </td>
                             <td> 
                             
-                                <form method="post" action="/admin/requerimento/update">
-                                <input type="hidden" name="id" value="<%= reque.id %>">
+                                <form method="post" action="/admin/titulo/update">
+                                <input type="hidden" name="id" value="<%= titulo.id %>">
                                 <button class="btn btn-success">Editar</button>
                             </form>
 
                             </td>
                             <td>
-                                <form method="post" action="/admin/requerimento/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
-                                    <input type="hidden" name="id" value="<%= reque.id %>">
+                                <form method="post" action="/admin/titulo/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                    <input type="hidden" name="id" value="<%= titulo.id %>">
                                     <button class="btn btn-danger">Excluir</button>
                                 </form>
                         
@@ -45,9 +45,9 @@
     function confirmarDelecao(event, form){
         event.preventDefault();
         console.log("O formulário não foi enviado!");
-        var decision = confirm("Você quer realmente deletar esse Requerimento?")
+        var decision = confirm("Você quer realmente deletar esse Título?")
         if(decision){
-            console.log("Requerimento Excluido!")
+            console.log("Título Excluido!")
             form.submit();
         }else{
             console.log("Não Deletado!")

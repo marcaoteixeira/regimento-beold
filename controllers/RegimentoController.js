@@ -1,52 +1,50 @@
 const Regimento = require("../models/regimento/regimento");
+const Titulo = require("../models/admin/titulo");
 
 class RegimentoController{
 
    //Administração Cadastro de Dispositivos do Regimento
 
-   async newdispositivo(req, res) {
-    var list_temenda = await Emenda.tEmendafindAll();
+   async newtitulo(req, res) {
 
-    res.render('admin/dispositivobr/new', { t_emenda: list_temenda });
- }
- async dispositivosave(req, res) {
+      res.render('admin/regimento/titulonew');
+   }
+   async titulosave(req, res) {
 
-    var id_tipo = req.body.id_tipo;
-    var emenda = req.body.emenda;
-    var descricao = req.body.descricao;
+      var titulo = req.body.titulo;
+      
+      await Titulo.TituloSave(titulo);
+      res.redirect('new');
+   }
+   async edittitulo(req, res) {
 
-    await Emenda.EmendaSave(id_tipo, emenda, descricao);
-    res.redirect('new');
- }
- async editemenda(req, res) {
+      var list_titulo = await Titulo.findAll()
 
-    var list_emenda = await Emenda.findAll()
+      res.render('admin/regimento/titulo/tituloedicao', { titulo: list_titulo });
 
-    res.render('admin/emenda/edicao', { emendas: list_emenda });
+   }
+   async updatetitulo(req, res) {
 
- }
- async updateemenda(req, res) {
+      var id = req.body.id;
+      var list_titulo = await Titulo.findById(id)
+      res.render('admin/regimento/titulo/tituloupdate', { titulo: list_titulo });
 
-    var id = req.body.id;
-    var list_emenda = await Emenda.findById(id)
-    res.render('admin/emenda/update', { emendas: list_emenda });
+   }
+   async savetitulo(req, res) {
+      var id = req.body.id
+      var titulo = req.body.titulo;
+      
+      await Titulo.TituloUpdate(id, titulo);
+      res.redirect('edit');
 
- }
- async saveemenda(req, res) {
-    var id = req.body.id;
-    var id_tipo = req.body.id_tipo;
-    var emenda = req.body.emenda
-    var descricao = req.body.descricao;
+   }
+   async deletetitulo(req, res) {
+      var id = req.body.id;
+      await Titulo.TituloDelete(id);
+      res.redirect('edit');
 
-    await Emenda.EmendaUpdate(id, id_tipo, emenda, descricao);
-    res.redirect('edit');
-
- }
- async deleteemenda(req, res) {
-    var id = req.body.id;
-    await Emenda.EmendaDelete(id);
-    res.redirect('edit');
-
- } 
+   }
 
 }
+
+module.exports = new RegimentoController();
