@@ -9,25 +9,25 @@
             <table class="table table-bordered">
                            
                 <tbody>            
-                    <% titulo.forEach((titulo)=> { %>
+                    <% capitulo.forEach((capitulo)=> { %>
                         <tr>
                             <td>
-                                <%= titulo.id %>
+                                <%= capitulo.id %>
                             </td>
                             <td>
-                                <%= titulo.titulo %> 
+                                <%= capitulo.capitulo %> 
                             </td>
                             <td> 
                             
-                                <form method="post" action="/admin/titulo/update">
-                                <input type="hidden" name="id" value="<%= titulo.id %>">
+                                <form method="post" action="/admin/capitulo/update">
+                                <input type="hidden" name="id" value="<%= capitulo.id %>">
                                 <button class="btn btn-success">Editar</button>
                             </form>
 
                             </td>
                             <td>
-                                <form method="post" action="/admin/titulo/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
-                                    <input type="hidden" name="id" value="<%= titulo.id %>">
+                                <form method="post" action="/admin/capitulo/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                    <input type="hidden" name="id" value="<%= capitulo.id %>">
                                     <button class="btn btn-danger">Excluir</button>
                                 </form>
                         
@@ -47,7 +47,7 @@
         console.log("O formulário não foi enviado!");
         var decision = confirm("Você quer realmente deletar esse Título?")
         if(decision){
-            console.log("Título Excluido!")
+            console.log("Capitulo Excluido!")
             form.submit();
         }else{
             console.log("Não Deletado!")

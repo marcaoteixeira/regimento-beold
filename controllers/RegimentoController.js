@@ -68,7 +68,6 @@ class RegimentoController{
    }
    async editcapitulo(req, res) {
 
-      var list_titulo = await Capitulo.tfindAll();
       var list_capitulo = await Capitulo.findAll()
 
       res.render('admin/regimento/capituloedicao',{ capitulo: list_capitulo, titulo: list_titulo });
