@@ -4,9 +4,9 @@ const Titulo = require("../../models/admin/titulo");
 var knex = require("../../database/conection");
 
 class Capitulo{
-    async findAll(){
+    async findAll(id_titulo){
         try{
-            var result = await knex.select("*").table("tab_capitulo");            
+            var result = await knex.where({id_titulo: id_titulo}).select("*").table("tab_capitulo");            
             return result;
         }catch(error){
             console.log(error);
@@ -44,9 +44,9 @@ class Capitulo{
 
         }
     }  
-    async CapituloUpdate(id, id_titulo,  capitulo){
+    async CapituloUpdate(id, capitulo){
         try{                       
-            await knex.where({id: id}).update({ id_titulo, capitulo }).table("tab_capitulo")
+            await knex.where({id: id}).update({ capitulo }).table("tab_capitulo")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){

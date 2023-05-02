@@ -68,31 +68,33 @@ class RegimentoController{
    }
    async editcapitulo(req, res) {
 
-      var list_capitulo = await Capitulo.findAll()
+      var id_titulo = req.body.id_titulo;
+      var list_capitulo = await Capitulo.findAll(id_titulo);
 
-      res.render('admin/regimento/capituloedicao',{ capitulo: list_capitulo, titulo: list_titulo });
+      res.render('admin/regimento/capituloedicao',{ capitulo: list_capitulo });
 
    }
    async updatecapitulo(req, res) {
 
       var id = req.body.id;
-      var list_titulo = await Titulo.findById(id)
-      res.render('admin/regimento/tituloupdate', { titulo: list_titulo });
+      var list_capitulo = await Capitulo.findById(id)
+      res.render('admin/regimento/capituloupdate', { capitulo: list_capitulo });
 
    }
    async savecapitulo(req, res) {
-      var id = req.body.id
-      var titulo = req.body.titulo;
+            
+      var id = req.body.id;
+      var capitulo = req.body.capitulo;
       
-      await Titulo.TituloUpdate(id, titulo);
+      await Capitulo.CapituloUpdate(id, capitulo);
       
-      res.redirect('edit');
+      res.redirect('select');
 
    }
    async deletecapitulo(req, res) {
       var id = req.body.id;
-      await Titulo.TituloDelete(id);
-      res.redirect('edit');
+      await Capitulo.CapituloDelete(id);
+      res.redirect('select');
 
    }
 
