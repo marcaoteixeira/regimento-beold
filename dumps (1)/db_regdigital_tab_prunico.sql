@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_artigo`
+-- Table structure for table `tab_prunico`
 --
 
-DROP TABLE IF EXISTS `tab_artigo`;
+DROP TABLE IF EXISTS `tab_prunico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_artigo` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `id_capitulo` int unsigned NOT NULL,
-  `artigo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+CREATE TABLE `tab_prunico` (
+  `id` int unsigned NOT NULL,
+  `id_artigo` int unsigned NOT NULL,
+  `prunico` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `capitulo=>paragrafo` (`id_capitulo`) USING BTREE,
-  CONSTRAINT `FK_tab_artigo_tab_capitulo` FOREIGN KEY (`id_capitulo`) REFERENCES `tab_capitulo` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de artigos do RICCD';
+  KEY `art=>prunico` (`id_artigo`),
+  CONSTRAINT `art=>prunico` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de parágafo único';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_artigo`
+-- Dumping data for table `tab_prunico`
 --
 
-LOCK TABLES `tab_artigo` WRITE;
-/*!40000 ALTER TABLE `tab_artigo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tab_artigo` ENABLE KEYS */;
+LOCK TABLES `tab_prunico` WRITE;
+/*!40000 ALTER TABLE `tab_prunico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_prunico` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-02  8:09:06
+-- Dump completed on 2023-05-02  8:19:28

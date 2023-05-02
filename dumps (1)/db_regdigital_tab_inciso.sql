@@ -16,30 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_capitulo`
+-- Table structure for table `tab_inciso`
 --
 
-DROP TABLE IF EXISTS `tab_capitulo`;
+DROP TABLE IF EXISTS `tab_inciso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_capitulo` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `id_titulo` int unsigned NOT NULL,
-  `capitulo` varchar(100) NOT NULL DEFAULT '',
+CREATE TABLE `tab_inciso` (
+  `id` int unsigned NOT NULL,
+  `id_paragrafo` int unsigned NOT NULL,
+  `inciso` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_capitulo-titulo` (`id_titulo`),
-  CONSTRAINT `fk_capitulo-titulo` FOREIGN KEY (`id_titulo`) REFERENCES `tab_titulo` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de capítulos do RICCD';
+  KEY `fk-inciso-paragrafo` (`id_paragrafo`),
+  CONSTRAINT `fk-inciso-paragrafo` FOREIGN KEY (`id_paragrafo`) REFERENCES `tab_paragrafo` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de incisos do RICD';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_capitulo`
+-- Dumping data for table `tab_inciso`
 --
 
-LOCK TABLES `tab_capitulo` WRITE;
-/*!40000 ALTER TABLE `tab_capitulo` DISABLE KEYS */;
-INSERT INTO `tab_capitulo` VALUES (1,1,'CAPÍTULO I - DA SEDE'),(2,1,'CAPÍTULO II -  DAS SESSÕES LEGISLATIVAS'),(3,1,'CAPÍTULO III - DAS SESSÕES PREPARATÓRIAS'),(4,1,'CAPÍTULO IV - DOS LÍDERES'),(5,1,'CAPÍTULO V - DOS BLOCOS PARLAMENTARES,  DA MAIORIA E DA MINORIA');
-/*!40000 ALTER TABLE `tab_capitulo` ENABLE KEYS */;
+LOCK TABLES `tab_inciso` WRITE;
+/*!40000 ALTER TABLE `tab_inciso` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_inciso` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-02  8:09:06
+-- Dump completed on 2023-05-02  8:19:27
