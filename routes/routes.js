@@ -77,5 +77,15 @@ router.post('/admin/capitulo/update',RegimentoController.updatecapitulo);
 router.post('/admin/capitulo/save',RegimentoController.savecapitulo);
 router.post('/admin/capitulo/delete',RegimentoController.deletecapitulo);
 
+//Rotas Regimento Sessão
+
+router.get('/admin/secao/new',RegimentoController.newsecao);
+router.post('/admin/secao/new',RegimentoController.secaosave);
+//router.get('/admin/secao/select',RegimentoController.selecttitulo);
+//router.post('/admin/secao/edit',RegimentoController.editcapitulo);
+//router.post('/admin/secao/update',RegimentoController.updatecapitulo);
+//router.post('/admin/secao/save',RegimentoController.savecapitulo);
+//router.post('/admin/secao/delete',RegimentoController.deletecapitulo);
+
 module.exports = router;
 
