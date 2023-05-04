@@ -3,6 +3,7 @@ var router = express.Router();
 const HomeController = require("../controllers/HomeController");
 const FacilidadesController = require("../controllers/FacilidadesController");
 const RegimentoController = require("../controllers/RegimentoController");
+const { SecaoDelete } = require("../models/admin/secao");
 
 
 router.get('/',HomeController.index);

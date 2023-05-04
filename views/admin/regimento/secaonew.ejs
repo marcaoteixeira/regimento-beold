@@ -10,10 +10,11 @@
 
             <form method="post" action="/admin/secao/new">
                 Titulo:
-                <select name="id_titulo" class="form-control">
+                <select id="titulo" name="id_titulo" class="form-control">
+                    <option>Selecione o Título</option>
                     <% titulo.forEach((titulo)=> { %>
                         <option value="<%= titulo.id %>" title="<%= titulo.id %>">
-                            <%= titulo.titulo %>
+                            <%= titulo.titulo %>                            
                         </option>
                         <% }) %>
                 </select>
@@ -21,6 +22,7 @@
                 <select name="id_titulo" class="form-control">
                     <% capitulo.forEach((capitulo)=> { %>
                         <option value="<%= capitulo.id %>" title="<%= capitulo.id %>">
+                            
                             <%= capitulo.capitulo %>
                         </option>
                         <% }) %>

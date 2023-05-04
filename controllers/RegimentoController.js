@@ -101,10 +101,13 @@ class RegimentoController{
     //Administração Cadastro Seção do Regimento
 
     async newsecao(req, res) {
+      var list_titulo = await Capitulo.tfindAll();
       var list_capitulo = await Secao.cfindAll();
-      res.render('admin/regimento/secaonew',{capitulo: list_capitulo});
+      console.log(list_titulo);
+      console.log(list_capitulo);
+      res.render('admin/regimento/secaonew',{titulo: list_titulo, capitulo: list_capitulo});
    }
-   async capitulosave(req, res) {
+   async secaosave(req, res) {
 
       var id_titulo = req.body.id_titulo
       var id_capitulo = req.body.id_capitulo;
