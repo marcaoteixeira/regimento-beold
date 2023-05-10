@@ -17,7 +17,7 @@ router.get('/usopalavra',FacilidadesController.usopalavra);
 //router.post('/list_quorum',FacilidadesController.emendas);
 
 //Rotas de Facilidades Comissões
-router.get('/admin/comissao/new',FacilidadesController.newcomiss);
+//router.get('/admin/comissao/new',FacilidadesController.newcomiss);
 router.post('/admin/comissao/new',FacilidadesController.comissaosave);
 router.get('/admin/comissao/edit',FacilidadesController.editcomiss);
 router.post('/admin/comissao/update',FacilidadesController.updatecomiss);

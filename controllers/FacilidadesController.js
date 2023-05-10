@@ -33,18 +33,17 @@ class FacilidadesController {
    
    // Administração Comissões
 
-   async newcomiss(req, res) {
+   //async newcomiss(req, res) {
 
-      res.render('admin/comissao/new');
-   }
+     // res.render('admin/comissao/new');
+  // }
    async comissaosave(req, res) {
 
-      var comissao = req.body.comissao;
-      var sigla = req.body.sigla;
-      var membros = req.body.membros;
-
+      var { comissao, sigla, membros } = req.body;
+     
       await Comissao.ComissSave(comissao, sigla, membros);
    }
+   
    async editcomiss(req, res) {
 
       var list_comiss = await Comissao.findAll()
