@@ -22,7 +22,7 @@ router.post('/admin/comissao/new',FacilidadesController.comissaosave);
 router.get('/admin/comissao/edit',FacilidadesController.editcomiss);
 router.post('/admin/comissao/update',FacilidadesController.updatecomiss);
 router.post('/admin/comissao/save',FacilidadesController.savecomiss);
-router.post('/admin/comissao/delete',FacilidadesController.deletecomiss);
+router.delete('/admin/comissao/delete/:id',FacilidadesController.deletecomiss);
 
 //Rotas de Facilidades Uso da Palavra
 router.get('/admin/usopalavra/new',FacilidadesController.newpalavra);

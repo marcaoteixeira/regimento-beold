@@ -47,8 +47,9 @@ class FacilidadesController {
    async editcomiss(req, res) {
 
       var list_comiss = await Comissao.findAll()
+      res.json(list_comiss);
 
-      res.render('admin/comissao/edicao', { comissoes: list_comiss });
+      //res.render('admin/comissao/edicao', { comissoes: list_comiss });
 
    }
    async updatecomiss(req, res) {
@@ -66,10 +67,11 @@ class FacilidadesController {
 
    }
    async deletecomiss(req, res) {
-      var id = req.body.comissao;
+      var id =  req.params.id
+      //var id = req.body.comissao;
       //var list_comiss = await Comissao.findAll()
       await Comissao.ComissDelete(id);
-      res.redirect('edit');
+      //res.redirect('edit');
 
    }
 
