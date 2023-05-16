@@ -37,6 +37,17 @@ class FacilidadesController {
 
      // res.render('admin/comissao/new');
   // }
+   async findComiss(req, res) {
+      var id = req.params.id;
+      var comiss = await Comissao.findById(id);
+      if (comiss == undefined) {
+         res.status(404);
+         res.json({});
+      } else {
+         res.status(200);
+         res.json(comiss);
+      }
+   }
    async comissaosave(req, res) {
 
       var { comissao, sigla, membros } = req.body;

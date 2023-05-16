@@ -12,17 +12,31 @@ class Comissao{
             return[];
         }
     }
-    async findById(comissao){
-        try{           
-            var result  = await knex.where({id: comissao}).table("tab_comissao")
-            return result;
-
-        }catch(error){
-            console.log(error);
-            return[];
-
-        }
+    async findById(id){
+        try{
+            var result =  await knex.select(["id", "comissao", "sigla", "membros"]).where({id: id}).table("tab_comissao"); 
+            if(result.length > 0){
+                return result[0];
+            }else{
+                return undefined;
+            }
+          }catch (error){
+              console.log(error);
+              return undefined;
+          }
+    
     }
+    //async findById(comissao){
+        //try{           
+          //  var result  = await knex.where({id: comissao}).table("tab_comissao")
+           // return result;
+
+       // }catch(error){
+           // console.log(error);
+           // return[];
+
+        //}
+    //}
     async ComissSave(comissao,sigla,membros){
         try{                       
             await knex.insert({comissao, sigla, membros}).table("tab_comissao");
